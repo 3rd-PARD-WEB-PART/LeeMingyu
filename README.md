@@ -1,6 +1,7 @@
 # LeeMingyu
 
 ![image](https://github.com/3rd-PARD-WEB-PART/LeeMingyu/assets/130739811/68cccd8c-81a9-48fe-b79d-2936ca5c438b)
+
 ## 첫화면
 
 개인 사진 (인스타그램 느낌 나게 border를 double로!)
@@ -13,7 +14,7 @@
 
 ![image](https://github.com/3rd-PARD-WEB-PART/LeeMingyu/assets/130739811/efdd8a67-9913-4f37-bf4a-e92ab629f89e)
 
-##나의 특징
+## 나의 특징
 
 취미 유목민 : 관심사도 많고, 하고 싶은 것도 많은 취미 유목민
 

@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# LeeMingyu
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://github.com/3rd-PARD-WEB-PART/LeeMingyu/assets/130739811/68cccd8c-81a9-48fe-b79d-2936ca5c438b)
 
-## Available Scripts
+## 첫화면
 
-In the project directory, you can run:
+개인 사진 (인스타그램 느낌 나게 border를 double로!)
 
-### `npm start`
+이름
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+현재 나를 나타내는 단어들
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+깃허브 + 파드 + 인스타그램 링크 : 클릭시 각 사이트로 넘어감.
 
-### `npm test`
+![image](https://github.com/3rd-PARD-WEB-PART/LeeMingyu/assets/130739811/efdd8a67-9913-4f37-bf4a-e92ab629f89e)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 나의 특징
 
-### `npm run build`
+취미 유목민 : 관심사도 많고, 하고 싶은 것도 많은 취미 유목민
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+확신의 ENTP : E 80%, N 80%, T 70%, P 80% 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+조력자..! : 아이디어나 생각을 현실에 맞춰서 잘 다루는 조력자..!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+![image](https://github.com/3rd-PARD-WEB-PART/LeeMingyu/assets/130739811/a3515091-e570-4f9f-bd2e-84d3a739aba5)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 이번 학기 나의 목표
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+꾸준히 성취하며 성장하는 사람 : 큰 거를 바라보다가 무언가를 놓치기 보다는 계속하여 조금씩 성취하며 성장하는 사람
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+협업을 두려워하지않고 자신감이 있는 사람 : 이전에는 나에 대한 확신이 없어 나를 드러내기 두려워했는데, 성취들을 통해 나를 믿고 나의 모든 능력을 협업에 발휘할 수 있는 사람
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+몸과 마음, 사람을 챙기는 사람 : 무리하면 쉽게 불안해하고 몸이 금방 안 좋아지면서 혼자 숨는 경우가 있는데, 이번 학기에는 몸과 마음, 인간관계까지 다 챙기고 싶다.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![image](https://github.com/3rd-PARD-WEB-PART/LeeMingyu/assets/130739811/a8d1b02c-2486-424d-a7fe-20a44323b372)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 과제를 마친 나 자신 고생했어! 앞으로의 이민규도 화이팅!

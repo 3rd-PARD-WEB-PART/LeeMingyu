@@ -22,8 +22,8 @@ function RegisterPage() {
                         비밀번호
                     </p>
                     <p className='heading'>
-                        영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.
-                    </p>
+                        <div className='row'>영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.
+                    </div></p>
                     <input id='inputValue' type='text' placeholder='비밀번호'></input>
                     <p className='heading'>
                         비밀번호 확인

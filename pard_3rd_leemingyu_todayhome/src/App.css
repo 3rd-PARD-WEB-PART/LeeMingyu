@@ -14,6 +14,10 @@
   align-items: center;
 }
 
+.row {
+  width: 396px;
+}
+
 .inputList{
   width: 635px;
   height: 728px;

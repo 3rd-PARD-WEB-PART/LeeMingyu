@@ -1,6 +1,7 @@
-
-import '../../App.css'
+import './Register.css'
 import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 function RegisterPage() {
     return (
@@ -36,9 +37,9 @@ function RegisterPage() {
                         다른 유저와 겹치지 않도록 입력해주세요. (2~15자)
                     </p>
                     <input id='inputValue' type='text' placeholder='별명 (2~15자)'></input>
-                    <button className='but'>
-                        회원가입하기
-                    </button>
+                    <StyledLink to='/profile'>
+                    <button className='but'>회원가입하기</button>
+                    </StyledLink>
                     <p className='login'>
                         이미 아이디가 있으신가요?
                         <div className='underLine'>
@@ -51,3 +52,8 @@ function RegisterPage() {
 }
 
 export default RegisterPage;
+
+const StyledLink = styled(Link)`
+    color: inherit;
+    text-decoration: none;
+    `;

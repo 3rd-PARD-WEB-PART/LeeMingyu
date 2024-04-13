@@ -1,0 +1,112 @@
+.container {
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .title {
+    width: 635px;
+    height: 112px;
+    display: flex;
+    background-color: #FFFFFF;
+    align-items: center;
+  }
+  
+  .row {
+    width: 396px;
+  }
+  
+  .inputList{
+    width: 635px;
+    height: 728px;
+    display: flex;
+    background-color: #FFFFFF;
+    justify-content: center;
+  }
+  
+  .registerItem{
+    width: 360px;
+    height: 695px;
+    background-color: #FFFFFF;
+  }
+  
+  
+  .logo{
+    width: 89.42px;
+    height: 31px;
+    padding-left: 15px;
+  }
+  
+  body{
+    background-color: #DBDBDB;
+  }
+  
+  .register{
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    margin-bottom: 40px;
+  }
+  
+  .heading{
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+  }
+  
+  #inputValue{
+    margin-top: 0px;
+    width: 359px;
+    height: 40px;
+    border-radius: 5px; 
+    border: 1px solid;
+    border-color: #DBDBDB;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+  
+  
+  #inputValue::placeholder{
+    margin-left: 100px;
+    font-size: 15px;
+    padding-left: 10px;
+  }
+  
+  button{
+    width: 359px;
+    height: 50px;
+    background-color: #35c5f0;
+    transition: background-color 0.1s;
+  }
+  
+  button:hover{
+    background-color: #86cfe6;
+  }
+  
+  .but{
+    margin-top: 20px;
+    font-size: 17px;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 3px;
+    border: none;
+  }
+     
+  .login{
+    margin-top: 30px;
+    margin-bottom: 8px;
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+    
+    justify-content: center;
+  }
+  .underLine{
+    margin-left: 5px;
+    text-decoration: underline;
+  }

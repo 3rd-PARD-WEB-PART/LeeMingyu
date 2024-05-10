@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
-export const registerInfoState = atom({
-    key: 'registerInfoState',
+export const myInfoState = atom({
+    key: 'myInfoState',
     default: {
         email: '',
         password: '',
@@ -9,7 +9,8 @@ export const registerInfoState = atom({
         homepage: '',
         gender: 0,
         date:'',
-        profileImage:'',
-        introduce:''
+        image:'',
+        introduce:'',
+
     }
 });

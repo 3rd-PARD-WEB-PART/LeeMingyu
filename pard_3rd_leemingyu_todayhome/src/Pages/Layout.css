@@ -1,112 +1,112 @@
-.container {
-    height:100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.header-container{
+  width: 100%;
+  height: 86px;
+  background-color: white;
+  display: flex;
+  justify-content: center; /* 가로 방향 가운데 정렬 */
+  align-items: center; /* 세로 방향 가운데 정렬 */
+  border-bottom: #EAEBEF 1px solid;
+}
+
+@media screen and (min-width : 1024px) {
+  .search-container{
+      margin-left: 5%;
+      display: flex;
+      align-items: center;
+      width: 20%;
+      height: 43px;
+      border-radius: 3px;
+      border: 1px solid #dbdbdb;
+  }    
+  .search-tablet {
+    display: none;
+}
+  .profile-info{
+      display: none;
   }
-  
-  .title {
-    width: 635px;
-    height: 112px;
-    display: flex;
-    background-color: #FFFFFF;
-    align-items: center;
+  .header-mobile{
+      display: none;
   }
-  
-  .row {
-    width: 396px;
+}
+
+@media screen and (min-width : 768px) and (max-width : 1023px) {
+  .search-container {
+      display: none;
   }
-  
-  .inputList{
-    width: 635px;
-    height: 728px;
-    display: flex;
-    background-color: #FFFFFF;
-    justify-content: center;
+  .header-mobile{
+      display: none;
   }
-  
-  .registerItem{
-    width: 360px;
-    height: 695px;
-    background-color: #FFFFFF;
+
+}
+
+@media screen and (max-width : 768px) {
+  .search-container {
+      display: none;
   }
-  
-  
-  .logo{
-    width: 89.42px;
-    height: 31px;
-    padding-left: 15px;
+  .header-container{
+      display: none;
   }
-  
-  body{
-    background-color: #DBDBDB;
+  .header-mobile{
+  width: 100%;
+  height: 86px;
+  background-color: white;
+  display: flex;
+  justify-content: center; /* 가로 방향 가운데 정렬 */
+  align-items: center; /* 세로 방향 가운데 정렬 */
+  border-bottom: #EAEBEF 1px solid;
   }
-  
-  .register{
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    margin-bottom: 40px;
+  .logo-container {
+      width: 60%;
+      display: flex; /* Flexbox 레이아웃 사용 */
+      justify-content: center; /* 요소를 수평으로 가운데 정렬 */
+      align-items: center; /* 요소를 수직으로 가운데 정렬 */
   }
-  
-  .heading{
-    margin-top: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    
+  .mobile-icon{
+      width: 20%;
   }
-  
-  #inputValue{
-    margin-top: 0px;
-    width: 359px;
-    height: 40px;
-    border-radius: 5px; 
-    border: 1px solid;
-    border-color: #DBDBDB;
-    margin-bottom: 20px;
-    opacity: 0.5;
-  }
-  
-  
-  #inputValue::placeholder{
-    margin-left: 100px;
-    font-size: 15px;
-    padding-left: 10px;
-  }
-  
-  button{
-    width: 359px;
-    height: 50px;
-    background-color: #35c5f0;
-    transition: background-color 0.1s;
-  }
-  
-  button:hover{
-    background-color: #86cfe6;
-  }
-  
-  .but{
-    margin-top: 20px;
-    font-size: 17px;
-    color: #FFFFFF;
-    font-weight: bold;
-    border-radius: 3px;
-    border: none;
-  }
-     
-  .login{
-    margin-top: 30px;
-    margin-bottom: 8px;
-    display: flex;
-    font-size: 15px;
-    font-weight: bold;
-    
-    justify-content: center;
-  }
-  .underLine{
-    margin-left: 5px;
-    text-decoration: underline;
-  }
+}
+
+.subheader-container{
+  width: 100%;
+  height: 65px;
+  background-color: white;
+  display: flex;
+  justify-content: center; /* 가로 방향 가운데 정렬 */
+  align-items: center; /* 세로 방향 가운데 정렬 */
+  border-bottom: #EAEBEF 1px solid;
+}
+
+.logo-img{
+  width: 85px;
+  height: 41.49px;
+}
+
+.title-text{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.search-img{
+  margin-left: 8px;
+  margin-right: 5px;
+  padding: 5px;
+  height: 19.83px;
+  width: 20.5px;
+}
+
+.search-box{
+  font-size: 16px;
+  width: 90%;
+  border: none;
+}
+.search-box:focus {outline: none;}
+
+.write-button{
+  width: 100px;
+  height: 43px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  margin-left: 35px;
+}

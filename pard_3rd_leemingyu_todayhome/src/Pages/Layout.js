@@ -15,10 +15,10 @@ const Layout = () => {
                 <img className='search-img' alt='search' src="/search.png"></img>
                 <input className='search-input' type='text' placeholder='통합검색'></input>
             </div>
-            <IconButton Width='18px' Height='18.5px' MarginLeft='35px'><img src="/mark.png" alt='mark'></img></IconButton>
-            <IconButton Width='18px' Height='18.5px' MarginLeft='25px'><img src="/bell.png" alt='bell'></img></IconButton>
-            <IconButton Width='18px' Height='18.5px' MarginLeft='25px'><img src="/cart.png" alt='cart'></img></IconButton>
-            <IconButton Width='43px' Height='43px' MarginLeft='25px'><img src="/profile.png" alt='profile'></img></IconButton>
+            <Icon Width='18px' Height='18.5px' MarginLeft='35px'><img src="/mark.png" alt='mark'></img></IconButton>
+            <Icon Width='18px' Height='18.5px' MarginLeft='25px'><img src="/bell.png" alt='bell'></img></IconButton>
+            <Icon Width='18px' Height='18.5px' MarginLeft='25px'><img src="/cart.png" alt='cart'></img></IconButton>
+            <Icon Width='43px' Height='43px' MarginLeft='25px'><img src="/profile.png" alt='profile'></img></IconButton>
             <button className='write-button'>글쓰기 <img src="/Vector.png" alt='vector'></img></button>
         </div>
         <div className='header2-container'>
@@ -57,7 +57,7 @@ const StyledLink = styled(Link)`
     color: inherit; /* 부모 요소로부터 상속받은 색상 사용 */
 `;
 
-const IconButton = styled.button`
+const Icon = styled.button`
     background-color: white;
     line-height: 0;
     border: none;

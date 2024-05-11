@@ -35,7 +35,7 @@ function Profile(){
                                 <img src="/proimg.png" width='130px' height='130px' alt="프로필 이미지" />
                                 )}
                             </label><br></br>
-                        <Text fontSize='26px' FontWeight='bold'>이민규</Text>
+                        <Text fontSize='26px' FontWeight='bold'>{myInfo.nickname}</Text>
                         <Text fontSize='13px' MarginTop='10px'>팔로워 <num>0</num> 팔로잉 <num>0</num></Text><br></br>
                         <Link to="/edit" className="set-button">설정</Link>                       
                     </div>

@@ -30,7 +30,7 @@ function RegisterPage() {
                     <p className='heading'>
                         이메일
                     </p>
-                    <input id='inputValue' type='password' name="email" value={myInfo.email} onChange={handleInfo} placeholder='이메일'></input>
+                    <input id='inputValue' type='text' name="email" value={myInfo.email} onChange={handleInfo} placeholder='이메일'></input>
                     
                     <p className='heading'>
                         비밀번호

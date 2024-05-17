@@ -1,17 +1,32 @@
 import './Profile.css';
 import styled from "styled-components";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link, Outlet } from "react-router-dom";
 import { useRecoilValue } from 'recoil';
 import { myInfoState } from '../atom';
+import { getUserData } from "../../API/AXIOS";
 
 function Profile(){
     const myInfo = useRecoilValue(myInfoState);
+    const [userData, setUserData] = useState({});
 
     const [isClicked, setIsClicked] = useState(false);
     const onClickLikeButton = () => {
         setIsClicked(!isClicked);
     };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await getUserData(1);
+                setUserData(response.data);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
 
 
     return(
@@ -29,13 +44,13 @@ function Profile(){
                 <div className='profile-container'>
                     <div className='info-labtop'>
                     <label htmlFor="chooseFile">
-                                {myInfo.image ? (
+                                {userData.image ? (
                                 <img src={myInfo.image} width='130px' height='130px' alt="프로필 이미지" />
                                 ) : (
                                 <img src="/proimg.png" width='130px' height='130px' alt="프로필 이미지" />
                                 )}
                             </label><br></br>
-                        <Text fontSize='26px' FontWeight='bold'>{myInfo.nickname}</Text>
+                        <Text fontSize='26px' FontWeight='bold'>{userData.nickname}</Text>
                         <Text fontSize='13px' MarginTop='10px'>팔로워 <num>0</num> 팔로잉 <num>0</num></Text><br></br>
                         <Link to="/edit" className="set-button">설정</Link>                       
                     </div>
@@ -50,7 +65,7 @@ function Profile(){
                             </label>
                         </div>
                         <div className='info-word'>
-                            <Text fontSize='26px' FontWeight='bold'>{myInfo.nickname}</Text>
+                            <Text fontSize='26px' FontWeight='bold'>{userData.nickname}</Text>
                             <Text fontSize='13px' MarginTop='10px'>팔로워 <num>0</num>  팔로잉 <num>0</num></Text><br></br>
                             <Link to="/edit" className="set-button">설정</Link> 
                         </div>

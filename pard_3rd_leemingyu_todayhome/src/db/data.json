@@ -7,9 +7,9 @@
       "nickname": "바끄민지",
       "homepage": "",
       "gender": "여성",
-      "birthday": "2000-06-08",
-      "profileImage":"",
-      "intro": "안녕하세요"
+      "date": "2000-06-08",
+      "image":"",
+      "introduce": "안녕하세요"
     }
   ]
 }

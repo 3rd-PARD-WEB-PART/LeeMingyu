@@ -1,24 +1,51 @@
 import './EditPage.css'
 import styled from "styled-components";
-import React, {useState, useEffect, useRef} from 'react';
-import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil'; 
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import { myInfoState } from '../atom';
+import { getUserData, patchUserData } from "../../API/AXIOS";
 
-function EditProfile(){ 
+function EditProfile() {
     const [myInfo, setMyInfo] = useRecoilState(myInfoState);
     const input = useRef();
+    const [userInfo, setUserInfo] = useState();
+
 
     const onClickimg = () => {
         input.current.click();
     }
 
-    // 개별 정보 업데이트 함수
+    const id = 1;
+    const getUser = async (id) => {
+        try {
+            const userData = await getUserData(1); // id 사용
+            // setUserInfo(userData);
+            // userInfo에서 필요한 필드를 가져와서 Recoil 상태에 설정
+            setMyInfo({
+                email: userData.data.email,
+                nickname: userData.data.nickname,
+                homepage: userData.data.homepage,
+                gender: userData.data.gender,
+                birthday: userData.data.birthday,
+                image: userData.data.image,
+                intro: userData.data.intro
+            });
+            console.log(userData.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        getUser(id);
+    }, [])
+
+
     const handleInfo = (field, value) => {
         setMyInfo(prev => ({ ...prev, [field]: value }));
     }
 
-    // 각 필드별 핸들러 설정
     const setEmail = (e) => {
         handleInfo('email', e.target.value);
     }
@@ -50,104 +77,117 @@ function EditProfile(){
     const setIntro = (e) => {
         handleInfo('introduce', e.target.value);
     }
-    return(
+
+    const setEditButton = async () => {
+        try {
+            await patchUserData(myInfo, id); // 수정된 데이터를 서버에 저장
+            await getUser(id); // 서버로부터 데이터를 다시 가져와서 상태 업데이트
+            Navigate("/profile"); // 프로필 페이지로 이동
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    return (
         <>
-            <div className='subheader-container'>
-                <HeadButton fontSize ="15px" MarginLeft='40px' Color='#35c5f0'>회원정보수정</HeadButton>
-                <HeadButton fontSize ="15px" MarginLeft='40px'>알림 설정</HeadButton>
-                <HeadButton fontSize ="15px" MarginLeft='40px'>사용자 숨기기 설정</HeadButton>
-                <HeadButton fontSize ="15px" MarginLeft='40px'>전문가 신청</HeadButton>
-                <HeadButton fontSize ="15px" MarginLeft='40px'>비밀번호 변경</HeadButton>
-                <HeadButton fontSize ="15px" MarginLeft='40px'>추천코드</HeadButton>
-            </div>
-            <div className='idmain-container'>
-                <div className='id-container'>
-                    <div className='id-title'>
-                        <Container Width='1100px' Height='100px' MarginLeft='40px'>
-                            <Text fontSize='24px' FontWeight='bold' >회원정보수정</Text>               
+            <div className='EditPage' clickSubmit={setEditButton}>
+                <div className='subheader-container'>
+                    <HeadButton fontSize="15px" MarginLeft='40px' Color='#35c5f0'>회원정보수정</HeadButton>
+                    <HeadButton fontSize="15px" MarginLeft='40px'>알림 설정</HeadButton>
+                    <HeadButton fontSize="15px" MarginLeft='40px'>사용자 숨기기 설정</HeadButton>
+                    <HeadButton fontSize="15px" MarginLeft='40px'>전문가 신청</HeadButton>
+                    <HeadButton fontSize="15px" MarginLeft='40px'>비밀번호 변경</HeadButton>
+                    <HeadButton fontSize="15px" MarginLeft='40px'>추천코드</HeadButton>
+                </div>
+                <div className='idmain-container'>
+                    <div className='id-container'>
+                        <div className='id-title'>
+                            <Container Width='1100px' Height='100px' MarginLeft='40px'>
+                                <Text fontSize='24px' FontWeight='bold' >회원정보수정</Text>
+                            </Container>
+                            <Container Width='100px'><Text fontSize='14px' Color='red' TextDeco='underline'>탈퇴하기</Text></Container>
+                        </div>
+                        {/* 이메일 Container */}
+                        <Container Height='45px'>
+                            <p><Text fontSize='15px'>이메일</Text><br></br><Text fontSize='15px' Color='#757575'>* 필수항목</Text></p>
+                            <Container Width='400px' Height='40px'>
+                                <Input type="text" name="email" value={myInfo.email} onChange={setEmail} />
+                            </Container>
                         </Container>
-                        <Container Width='100px'><Text fontSize='14px' Color='red' TextDeco='underline'>탈퇴하기</Text></Container>                                        
-                    </div>
-                    {/* 이메일 Container */}
-                    <Container Height='45px'>
-                        <p><Text fontSize='15px'>이메일</Text><br></br><Text fontSize='15px' Color='#757575'>* 필수항목</Text></p>                        
-                        <Container Width='400px' Height='40px'>
-                            <Input type="text" name="email" value={myInfo.email} onChange={setEmail}/>
+                        {/* 이메일 변경 글씨 */}
+                        <Container Height='50px' MarginLeft='180px' Color='#9E9E9E'>
+                            <Text fontSize='15px' Color='#9E9E9E' FontWeight='700'>이메일을 변경하시려면 운영자에게 이메일을 보내주세요.</Text>
                         </Container>
-                    </Container>
-                    {/* 이메일 변경 글씨 */}
-                    <Container Height='50px' MarginLeft='180px' Color='#9E9E9E'>
-                        <Text fontSize='15px' Color='#9E9E9E' FontWeight='700'>이메일을 변경하시려면 운영자에게 이메일을 보내주세요.</Text> 
-                    </Container>
-                    {/* 별명 입력칸 */}
-                    <Container Height='45px' MarginTop='20px'>
-                        <p><Text fontSize='15px'>별명</Text><br></br><Text fontSize='15px' Color='#757575'>* 필수항목</Text></p>                        
-                        <Container Width='400px' Height='40px' >
-                            <Input type="text" name="nickname" value={myInfo.nickname} onChange={setNickname} />
+                        {/* 별명 입력칸 */}
+                        <Container Height='45px' MarginTop='20px'>
+                            <p><Text fontSize='15px'>별명</Text><br></br><Text fontSize='15px' Color='#757575'>* 필수항목</Text></p>
+                            <Container Width='400px' Height='40px' >
+                                <Input type="text" name="nickname" value={myInfo.nickname} onChange={setNickname} />
+                            </Container>
                         </Container>
-                    </Container>
-                    {/* 홈페이지 입력칸 */}
-                    <Container Height='45px' MarginTop='30px'>
-                        <Text fontSize='15px' MarginRight='10px'>홈페이지</Text>                      
-                        <Container Width='400px' Height='40px' >
-                            <Input type="text" name="homepage" value={myInfo.homepage} onChange={setHomepage} />
+                        {/* 홈페이지 입력칸 */}
+                        <Container Height='45px' MarginTop='30px'>
+                            <Text fontSize='15px' MarginRight='10px'>홈페이지</Text>
+                            <Container Width='400px' Height='40px' >
+                                <Input type="text" name="homepage" value={myInfo.homepage} onChange={setHomepage} />
+                            </Container>
                         </Container>
-                    </Container>
-                    <Container Height='45px' MarginTop='20px'>
-                        <Text fontSize='15px' MarginRight='35px'>성별</Text>                      
-                        <Container Width='400px' Height='40px'>
-                            <label class='radio-label'>
-                            <input type="radio" value="여성" checked={myInfo.gender === "여성"} onChange={setGender}/>
-                                <span>여성</span>
-                            </label>
-                            <label class='radio-label'>
-                            <input type="radio" value="남성" checked={myInfo.gender === "남성"} onChange={setGender}/>
-                                <span>남성</span>
-                            </label>
+                        <Container Height='45px' MarginTop='20px'>
+                            <Text fontSize='15px' MarginRight='35px'>성별</Text>
+                            <Container Width='400px' Height='40px'>
+                                <label class='radio-label'>
+                                    <input type="radio" value="여성" checked={myInfo.gender === "여성"} onChange={setGender} />
+                                    <span>여성</span>
+                                </label>
+                                <label class='radio-label'>
+                                    <input type="radio" value="남성" checked={myInfo.gender === "남성"} onChange={setGender} />
+                                    <span>남성</span>
+                                </label>
+                            </Container>
                         </Container>
-                    </Container>
-                    {/* 홈페이지 입력칸 */}
-                    <Container Height='45px' MarginTop='20px'>
-                        <Text fontSize='15px' MarginRight='10px'>생년월일</Text>                      
-                        <Container Width='400px' Height='40px' >
-                            <Input type= "date" value={myInfo.date} onChange={setBirthday} />
+                        {/* 홈페이지 입력칸 */}
+                        <Container Height='45px' MarginTop='20px'>
+                            <Text fontSize='15px' MarginRight='10px'>생년월일</Text>
+                            <Container Width='400px' Height='40px' >
+                                <Input type="date" value={myInfo.date} onChange={setBirthday} />
+                            </Container>
                         </Container>
-                    </Container>
-                    <Container Height='230px' MarginTop='30px' Align='flex-start'>
-                        <Text fontSize='15px' MarginRight='-18px'>프로필 이미지</Text>
-                        <Container Width='400px' Height='230px' MarginLeft='70px'>
-                        <form method="post" enctype="multipart/form-data">
-                            <div className="button">
-                            <label htmlFor="chooseFile">
-                                {myInfo.image ? (
-                                <img src={myInfo.image} width='200px' height='200px' alt="프로필 이미지" />
-                                ) : (
-                                <img src="/proimg.png" width='200px' height='200px' alt="프로필 이미지" />
-                                )}
-                            </label>
-                            </div>
-                            <input
-                            type="file"
-                            id="chooseFile"
-                            name="chooseFile"
-                            accept="image/*" // 이미지 파일만 가져오도록 함
-                            onChange={setImage}
-                            />
-                        </form>
+                        <Container Height='230px' MarginTop='30px' Align='flex-start'>
+                            <Text fontSize='15px' MarginRight='-18px'>프로필 이미지</Text>
+                            <Container Width='400px' Height='230px' MarginLeft='70px'>
+                                <form method="post" enctype="multipart/form-data">
+                                    <div className="button">
+                                        <label htmlFor="chooseFile">
+                                            {myInfo.image ? (
+                                                <img src={myInfo.image} width='200px' height='200px' alt="프로필 이미지" />
+                                            ) : (
+                                                <img src="/proimg.png" width='200px' height='200px' alt="프로필 이미지" />
+                                            )}
+                                        </label>
+                                    </div>
+                                    <input
+                                        type="file"
+                                        id="chooseFile"
+                                        name="chooseFile"
+                                        accept="image/*" // 이미지 파일만 가져오도록 함
+                                        onChange={setImage}
+                                    />
+                                </form>
+                            </Container>
                         </Container>
-                    </Container>
-                    {/* 한줄 소개 입력칸 */}
-                    <Container Height='45px' MarginTop='20px'>
-                        <Text fontSize='15px' MarginRight='10px'>한줄 소개</Text>                      
-                        <Container Width='400px' Height='40px' >
-                        <Input type="text" name="introduce" value={myInfo.introduce} onChange={setIntro} />
+                        {/* 한줄 소개 입력칸 */}
+                        <Container Height='45px' MarginTop='20px'>
+                            <Text fontSize='15px' MarginRight='10px'>한줄 소개</Text>
+                            <Container Width='400px' Height='40px' >
+                                <Input type="text" name="introduce" value={myInfo.introduce} onChange={setIntro} />
+                            </Container>
                         </Container>
-                    </Container>
-                    <div className='id-title'> {/* 회원정보수정 타이틀 */}
-                        <Container Width='1000px' Height='50px' MarginLeft='40px'></Container>
-                        <StyledLink to='/profile'>
-                            <button className='write-button'>수정하기</button>                                  
-                        </StyledLink>
+                        <div className='id-title'> {/* 회원정보수정 타이틀 */}
+                            <Container Width='1000px' Height='50px' MarginLeft='40px'></Container>
+                            <StyledLink to='/profile'>
+                                <button className='write-button'>수정하기</button>
+                            </StyledLink>
+                        </div>
                     </div>
                 </div>
             </div>
